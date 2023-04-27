@@ -28,6 +28,7 @@ class Message(ModelViewSet):
         serializer.save()
         
     def update(self, request, *args, **kwargs):
+        instance=self.get_object()
         serializer = self.serializer_class(
             data=request.data, instance=instance, partial=True)
         serializer.is_valid(raise_exception=True)
